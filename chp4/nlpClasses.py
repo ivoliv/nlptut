@@ -23,7 +23,7 @@ class Vocabulary(object):
             self._index_to_token[token_index] = token
         else:
             token_index = self._token_to_index[token]
-
+            
         return token_index
 
     def lookup_token(self, token):

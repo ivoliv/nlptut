@@ -14,6 +14,12 @@ class SurnamesVectorizer(object):
         for c in surname:
             one_hot[self.surnames_vocab.lookup_token(c)] = 1
         return one_hot
+    
+    def vectorize_count(self, surname):
+        count_hot = np.zeros(len(self.surnames_vocab))
+        for c in surname:
+            count_hot[self.surnames_vocab.lookup_token(c)] += 1
+        return count_hot
 
     @classmethod
     def from_dataframe(cls, surnames_df):
@@ -35,7 +41,7 @@ class SurnamesDataset(Dataset):
             else torch.device('cpu')
         self.surnames_df = surnames_df
         self._vectorizer = vectorizer
-
+        
         self.train_df = self.surnames_df[self.surnames_df.split == 'train']
         self.train_size = len(self.train_df)
 
