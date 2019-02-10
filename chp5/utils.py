@@ -49,7 +49,7 @@ def make_embedding_matrix(glove_filepath, words):
             final_embeddings[i, :] = embedding_i
             new_words += 1
 
-    print('final embedding    : {:,} words'.format(final_embeddings.shape[0]))
     print('new embeddings     : {:,} words'.format(new_words))
+    print('final embedding    : {:,} words'.format(final_embeddings.shape[0]))
 
     return final_embeddings
